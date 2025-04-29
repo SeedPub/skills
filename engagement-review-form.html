@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Agency Engagement Survey - Seed</title>
+  <title>Agency Engagement & Value Survey - Seed</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
@@ -37,6 +37,12 @@
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       text-align: left;
+    }
+    h2 {
+      color: #2A3C54;
+      margin-top: 30px;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 5px;
     }
     label {
       display: block;
@@ -74,7 +80,7 @@
     <div class="logo">
       <img src="https://media.licdn.com/dms/image/v2/D4E0BAQG5lNiP9W5eAQ/company-logo_200_200/company-logo_200_200/0/1707155695993/seed_publicity_logo?e=2147483647&v=beta&t=ccU-uTWu3WvvpBsl3kH4vUMPyP3h3H1Yr5Lc2LIZJcg" alt="Seed Logo">
     </div>
-    <h1>Agency Engagement Survey</h1>
+    <h1>Agency Engagement & Value Survey</h1>
 
     <form id="engagementForm">
 
@@ -84,6 +90,9 @@
       <label for="reviewee">Reviewee Name:</label>
       <input type="text" id="reviewee" name="reviewee" required>
 
+      <h2>Engagement</h2>
+
+      <!-- Engagement Questions -->
       <label>Do they actively participate and contribute in team meetings?</label>
       <select name="meetings" required>
         <option value="">Select...</option>
@@ -204,6 +213,59 @@
         <option value="1|Always">Always</option>
       </select>
 
+      <h2>Values</h2>
+
+      <!-- Values Questions -->
+      <label>How often do they identify and address issues without waiting to be told?</label>
+      <select name="initiative" required>
+        <option value="">Select...</option>
+        <option value="0|Very rarely">Very rarely</option>
+        <option value="0.2|Rarely">Rarely</option>
+        <option value="0.4|Occasionally">Occasionally</option>
+        <option value="0.7|Frequently">Frequently</option>
+        <option value="1|Always">Always</option>
+      </select>
+
+      <label>How frequently do they challenge existing processes and suggest innovative improvements including experimentation?</label>
+      <select name="innovation" required>
+        <option value="">Select...</option>
+        <option value="0|Very rarely">Very rarely</option>
+        <option value="0.2|Rarely">Rarely</option>
+        <option value="0.4|Occasionally">Occasionally</option>
+        <option value="0.7|Frequently">Frequently</option>
+        <option value="1|Always">Always</option>
+      </select>
+
+      <label>How often do they improve their skills and expertise in their field?</label>
+      <select name="skillsGrowth" required>
+        <option value="">Select...</option>
+        <option value="0|Very rarely">Very rarely</option>
+        <option value="0.2|Rarely">Rarely</option>
+        <option value="0.4|Occasionally">Occasionally</option>
+        <option value="0.7|Frequently">Frequently</option>
+        <option value="1|Always">Always</option>
+      </select>
+
+      <label>How often do they seek out new knowledge or skills, demonstrating a genuine interest in learning?</label>
+      <select name="learning" required>
+        <option value="">Select...</option>
+        <option value="0|Very rarely">Very rarely</option>
+        <option value="0.2|Rarely">Rarely</option>
+        <option value="0.4|Occasionally">Occasionally</option>
+        <option value="0.7|Frequently">Frequently</option>
+        <option value="1|Always">Always</option>
+      </select>
+
+      <label>How often do they bring creativity and a positive spirit to their work, contributing to a positive and innovative work environment?</label>
+      <select name="creativity" required>
+        <option value="">Select...</option>
+        <option value="0|Very rarely">Very rarely</option>
+        <option value="0.2|Rarely">Rarely</option>
+        <option value="0.4|Occasionally">Occasionally</option>
+        <option value="0.7|Frequently">Frequently</option>
+        <option value="1|Always">Always</option>
+      </select>
+
       <input type="submit" value="Submit">
     </form>
   </div>
@@ -231,7 +293,7 @@
       const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
       const link = document.createElement('a');
       link.href = URL.createObjectURL(blob);
-      link.download = `agency_engagement_survey_${formData.get('reviewee') || 'unknown'}.csv`;
+      link.download = `agency_engagement_value_survey_${formData.get('reviewee') || 'unknown'}.csv`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
